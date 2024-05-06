@@ -1,13 +1,13 @@
-package org.alejo2075.gov_employees_credit.service;
+package org.alejo2075.employees_credit.service;
 
 import lombok.RequiredArgsConstructor;
-import org.alejo2075.gov_employees_credit.jwt.JwtService;
-import org.alejo2075.gov_employees_credit.model.dto.AuthenticationRequest;
-import org.alejo2075.gov_employees_credit.model.dto.AuthenticationResponse;
-import org.alejo2075.gov_employees_credit.model.entity.Token;
-import org.alejo2075.gov_employees_credit.model.entity.User;
-import org.alejo2075.gov_employees_credit.repository.TokenRepository;
-import org.alejo2075.gov_employees_credit.repository.UserRepository;
+import org.alejo2075.employees_credit.jwt.JwtService;
+import org.alejo2075.employees_credit.model.dto.AuthenticationRequest;
+import org.alejo2075.employees_credit.model.dto.AuthenticationResponse;
+import org.alejo2075.employees_credit.model.entity.Token;
+import org.alejo2075.employees_credit.model.entity.User;
+import org.alejo2075.employees_credit.repository.TokenRepository;
+import org.alejo2075.employees_credit.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;

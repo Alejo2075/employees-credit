@@ -1,4 +1,4 @@
-package org.alejo2075.gov_employees_credit.exception;
+package org.alejo2075.employees_credit.exception;
 
 public class AuthenticationException extends RuntimeException {
 

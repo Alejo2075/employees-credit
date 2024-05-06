@@ -1,4 +1,4 @@
-package org.alejo2075.gov_employees_credit.jwt;
+package org.alejo2075.employees_credit.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

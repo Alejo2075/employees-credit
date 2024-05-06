@@ -1,8 +1,8 @@
-package org.alejo2075.gov_employees_credit.model.entity;
+package org.alejo2075.employees_credit.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.alejo2075.gov_employees_credit.model.Role;
+import org.alejo2075.employees_credit.model.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

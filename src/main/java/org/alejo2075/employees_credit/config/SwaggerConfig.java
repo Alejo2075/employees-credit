@@ -1,4 +1,4 @@
-package org.alejo2075.gov_employees_credit.config;
+package org.alejo2075.employees_credit.config;
 
 import org.springdoc.core.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;

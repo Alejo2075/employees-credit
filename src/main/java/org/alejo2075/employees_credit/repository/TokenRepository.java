@@ -1,6 +1,6 @@
-package org.alejo2075.gov_employees_credit.repository;
+package org.alejo2075.employees_credit.repository;
 
-import org.alejo2075.gov_employees_credit.model.entity.Token;
+import org.alejo2075.employees_credit.model.entity.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,7 +1,7 @@
-package org.alejo2075.gov_employees_credit.config;
+package org.alejo2075.employees_credit.config;
 
 import lombok.RequiredArgsConstructor;
-import org.alejo2075.gov_employees_credit.jwt.JwtAuthenticationFilter;
+import org.alejo2075.employees_credit.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;

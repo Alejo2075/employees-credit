@@ -1,4 +1,4 @@
-package org.alejo2075.gov_employees_credit.model.dto;
+package org.alejo2075.employees_credit.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

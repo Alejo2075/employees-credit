@@ -1,4 +1,4 @@
-package org.alejo2075.gov_employees_credit.controller;
+package org.alejo2075.employees_credit.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -8,9 +8,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.alejo2075.gov_employees_credit.model.dto.AuthenticationRequest;
-import org.alejo2075.gov_employees_credit.model.dto.AuthenticationResponse;
-import org.alejo2075.gov_employees_credit.service.AuthService;
+import org.alejo2075.employees_credit.model.dto.AuthenticationRequest;
+import org.alejo2075.employees_credit.model.dto.AuthenticationResponse;
+import org.alejo2075.employees_credit.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
