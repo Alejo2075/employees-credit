@@ -1,13 +1,13 @@
-package org.alejo2075.repair_net;
+package org.alejo2075.gov_employees_credit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RepairNetApplication {
+public class GovEmployeesCreditApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RepairNetApplication.class, args);
+        SpringApplication.run(GovEmployeesCreditApplication.class, args);
     }
 
 }
