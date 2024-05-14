@@ -1,4 +1,4 @@
-package org.alejo2075.employees_credit.config;
+package org.alejo2075.employees_credit.modules.user.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;

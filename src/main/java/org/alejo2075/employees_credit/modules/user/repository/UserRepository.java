@@ -1,6 +1,6 @@
-package org.alejo2075.employees_credit.repository;
+package org.alejo2075.employees_credit.modules.user.repository;
 
-import org.alejo2075.employees_credit.model.entity.User;
+import org.alejo2075.employees_credit.modules.user.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

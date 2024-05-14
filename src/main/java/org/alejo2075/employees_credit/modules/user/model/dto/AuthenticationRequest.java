@@ -1,5 +1,6 @@
-package org.alejo2075.employees_credit.model.dto;
+package org.alejo2075.employees_credit.modules.user.model.dto;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class AuthenticationRequest {
 
     @NotBlank(message = "Username cannot be blank")
+    @Email
     private String email;
 
     @NotBlank(message = "Password cannot be blank")
