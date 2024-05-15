@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
+    <!-- Define properties for log configuration -->
     <Properties>
+        <!-- Path to store log files -->
         <Property name="log-path">logs</Property>
+        <!-- Pattern for log messages -->
         <Property name="log-pattern">%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Property>
     </Properties>
+
+    <!-- Define appenders to write logs to console and file -->
     <Appenders>
+        <!-- Console appender configuration -->
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="${log-pattern}" />
         </Console>
+
+        <!-- Rolling file appender configuration -->
         <RollingFile name="RollingFile" fileName="${log-path}/app.log"
                      filePattern="${log-path}/app-%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="${log-pattern}" />
             <Policies>
+                <!-- Roll over log file based on time -->
                 <TimeBasedTriggeringPolicy />
+                <!-- Roll over log file based on size (10 MB) -->
                 <SizeBasedTriggeringPolicy size="10 MB"/>
             </Policies>
             <DefaultRolloverStrategy max="20"/>
         </RollingFile>
     </Appenders>
+
+    <!-- Configure loggers -->
     <Loggers>
+        <!-- Root logger configuration -->
         <Root level="info">
             <AppenderRef ref="Console" />
             <AppenderRef ref="RollingFile" />
