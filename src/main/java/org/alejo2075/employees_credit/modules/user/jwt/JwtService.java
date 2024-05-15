@@ -6,6 +6,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.alejo2075.employees_credit.modules.user.model.entity.User;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,6 +24,7 @@ import java.util.function.Function;
  */
 @Service
 @Getter
+@Setter
 @Slf4j
 public class JwtService {
 
@@ -125,7 +128,7 @@ public class JwtService {
      * @param token the JWT token
      * @return true if the token is expired, false otherwise
      */
-    private boolean isTokenExpired(String token) {
+    protected boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
 
@@ -135,7 +138,7 @@ public class JwtService {
      * @param token the JWT token
      * @return the expiration date
      */
-    private Date extractExpiration(String token) {
+    protected Date extractExpiration(String token) {
         return extractClaim(token, Claims::getExpiration);
     }
 
@@ -145,7 +148,7 @@ public class JwtService {
      * @param token the JWT token
      * @return the claims
      */
-    private Claims extractAllClaims(String token) {
+    protected Claims extractAllClaims(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(getSignInKey())
                 .build()
