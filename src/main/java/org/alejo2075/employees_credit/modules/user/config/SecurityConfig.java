@@ -46,7 +46,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(req ->
                         req
                                 // Permit all requests to the login and register endpoints
-                                .requestMatchers("api/v1/auth/login", "api/v1/auth/register").permitAll()
+                                .requestMatchers("/api/v1/auth/**").permitAll()
                                 // Require authentication for all other requests
                                 .anyRequest().authenticated()
                 )
