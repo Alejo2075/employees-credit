@@ -11,29 +11,54 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import lombok.extern.slf4j.Slf4j;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
+/**
+ * Configuration class for security settings.
+ */
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 @EnableMethodSecurity
+@Slf4j
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthFilter;
 
+    /**
+     * Configures the security filter chain.
+     *
+     * @param http the HTTP security configuration
+     * @return the security filter chain
+     * @throws Exception if an error occurs during configuration
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        log.info("Configuring security filter chain");
+
         http
+                // Disable CSRF protection as it is not needed for JWT-based authentication
                 .csrf(AbstractHttpConfigurer::disable)
+
+                // Configure request authorization
                 .authorizeHttpRequests(req ->
                         req
-                                .requestMatchers("api/v1/auth/login", "api/v1/auth/register")
-                                .permitAll()
+                                // Permit all requests to the login and register endpoints
+                                .requestMatchers("api/v1/auth/login", "api/v1/auth/register").permitAll()
+                                // Require authentication for all other requests
                                 .anyRequest().authenticated()
                 )
+
+                // Set session management to stateless as we are using JWTs
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
+
+                // Add the JWT authentication filter before the username-password authentication filter
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
+        log.info("Security filter chain configured successfully");
+
         return http.build();
     }
 }

@@ -8,9 +8,17 @@ import org.springdoc.core.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configuration class for Swagger/OpenAPI documentation.
+ */
 @Configuration
 public class SwaggerConfig {
 
+    /**
+     * Bean for grouping public APIs.
+     *
+     * @return the grouped OpenApi instance
+     */
     @Bean
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
@@ -19,6 +27,11 @@ public class SwaggerConfig {
                 .build();
     }
 
+    /**
+     * Bean for custom OpenAPI configuration.
+     *
+     * @return the OpenAPI instance with custom info
+     */
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
@@ -26,7 +39,7 @@ public class SwaggerConfig {
                         .title("Employees Credit API")
                         .version("1.0")
                         .description("API documentation for the Employees Credit application")
-                        //.termsOfService("http://example.com/terms")
+                        //.termsOfService("http://example.com/terms") // Uncomment and provide a valid URL for terms of service
                         .contact(new Contact().name("Support Team").email("alejsant75@gmail.com").url("https://github.com/Alejo2075/employees-credit"))
                         .license(new License().name("Apache 2.0").url("https://springdoc.org")));
     }

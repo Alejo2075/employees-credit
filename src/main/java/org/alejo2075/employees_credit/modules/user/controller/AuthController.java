@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Controller class for authentication endpoints.
+ */
 @RestController
 @RequestMapping("/api/v1/auth")
 @AllArgsConstructor
@@ -25,6 +28,12 @@ public class AuthController {
 
     private final AuthService authService;
 
+    /**
+     * Registers a new user and returns a JWT token.
+     *
+     * @param request the authentication request containing user details
+     * @return the authentication response containing the JWT token
+     */
     @PostMapping("/register")
     @Operation(summary = "Register a new user", description = "Register a new user and returns JWT token")
     @ApiResponses(value = {
@@ -37,6 +46,12 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
+    /**
+     * Authenticates a user and returns a JWT token.
+     *
+     * @param request the authentication request containing user credentials
+     * @return the authentication response containing the JWT token
+     */
     @PostMapping("/login")
     @Operation(summary = "Login user", description = "Authenticate a user and returns JWT token")
     @ApiResponses(value = {
