@@ -1,22 +1,26 @@
-package org.alejo2075.employees_credit.modules.user.service;
+package org.alejo2075.employees_credit.modules.user.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.alejo2075.employees_credit.modules.user.exception.AuthenticationException;
-import org.alejo2075.employees_credit.modules.user.jwt.JwtService;
+import org.alejo2075.employees_credit.common.jwt.JwtService;
 import org.alejo2075.employees_credit.modules.user.model.Role;
 import org.alejo2075.employees_credit.modules.user.model.dto.AuthenticationRequest;
 import org.alejo2075.employees_credit.modules.user.model.dto.AuthenticationResponse;
 import org.alejo2075.employees_credit.modules.user.model.entity.User;
 import org.alejo2075.employees_credit.modules.user.repository.UserRepository;
+import org.alejo2075.employees_credit.modules.user.service.AuthService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service implementation for auth-related operations.
+ */
 @Service
 @RequiredArgsConstructor
-@Slf4j
+@Log4j2
 public class AuthServiceImpl implements AuthService {
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
@@ -48,6 +52,13 @@ public class AuthServiceImpl implements AuthService {
         log.info("User {} registered successfully", request.getEmail());
 
         var jwtToken = jwtService.generateToken(user);
+
+        // Send a welcome email
+        emailService.sendEmail(
+                user.getEmail(),
+                "Welcome to Employees Credit",
+                "Thank you for registering with Employees Credit. Your account has been created successfully."
+        );
 
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)

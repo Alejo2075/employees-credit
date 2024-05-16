@@ -1,4 +1,4 @@
-package org.alejo2075.employees_credit.modules.user.config;
+package org.alejo2075.employees_credit.common.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
