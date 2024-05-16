@@ -1,8 +1,10 @@
-package org.alejo2075.employees_credit.modules.user.jwt;
+package org.alejo2075.employees_credit.common.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.alejo2075.employees_credit.common.jwt.JwtAuthenticationFilter;
+import org.alejo2075.employees_credit.common.jwt.JwtService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

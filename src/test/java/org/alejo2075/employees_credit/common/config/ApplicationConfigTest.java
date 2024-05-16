@@ -1,4 +1,4 @@
-package org.alejo2075.employees_credit.modules.user.config;
+package org.alejo2075.employees_credit.common.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
