@@ -1,10 +1,10 @@
-package org.alejo2075.employees_credit.modules.user.config;
+package org.alejo2075.employees_credit.common.config;
 
 import lombok.RequiredArgsConstructor;
-import org.alejo2075.employees_credit.modules.user.jwt.JwtAuthenticationFilter;
+import lombok.extern.log4j.Log4j2;
+import org.alejo2075.employees_credit.common.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -22,7 +22,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableWebSecurity
 @RequiredArgsConstructor
 @EnableMethodSecurity
-@Slf4j
+@Log4j2
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthFilter;
@@ -48,6 +48,7 @@ public class SecurityConfig {
                                 // Permit all requests to the login and register endpoints
                                 .requestMatchers("/api/v1/auth/**").permitAll()
                                 // Require authentication for all other requests
+                                .requestMatchers("/api/v1/user/**").authenticated()
                                 .anyRequest().authenticated()
                 )
 
