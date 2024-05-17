@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import lombok.extern.slf4j.Slf4j;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
@@ -49,6 +48,8 @@ public class SecurityConfig {
                                 .requestMatchers("/api/v1/auth/**").permitAll()
                                 // Require authentication for all other requests
                                 .requestMatchers("/api/v1/user/**").authenticated()
+                                .requestMatchers("/actuator/**").permitAll()
+                                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                                 .anyRequest().authenticated()
                 )
 

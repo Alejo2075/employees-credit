@@ -23,7 +23,7 @@ public class SwaggerConfig {
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
                 .group("public")
-                .packagesToScan("org.alejo2075.gov_employees_credit.controller")
+                .packagesToScan("org.alejo2075.employees_credit.modules.user.controller")
                 .build();
     }
 
@@ -39,7 +39,6 @@ public class SwaggerConfig {
                         .title("Employees Credit API")
                         .version("1.0")
                         .description("API documentation for the Employees Credit application")
-                        //.termsOfService("http://example.com/terms") // Uncomment and provide a valid URL for terms of service
                         .contact(new Contact().name("Support Team").email("alejsant75@gmail.com").url("https://github.com/Alejo2075/employees-credit"))
                         .license(new License().name("Apache 2.0").url("https://springdoc.org")));
     }
