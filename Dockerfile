@@ -23,3 +23,6 @@ COPY --from=builder /app/target/employees-credit-0.0.1-SNAPSHOT.jar app.jar
 
 # Command to run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
+
