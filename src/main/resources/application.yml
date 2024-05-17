@@ -1,14 +1,16 @@
+# Spring application configuration
 spring:
   application:
     name: employees-credit
 
-  # Database
+  # Datasource configuration for MySQL
   datasource:
     url: jdbc:mysql://localhost:3306/employees_credit
-    username: user
-    password: password
+    username: ${DB_USERNAME:user}
+    password: ${DB_PASSWORD:password}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  # JPA configuration
   jpa:
     show-sql: true
     hibernate:
@@ -18,6 +20,7 @@ spring:
         format_sql: true
 
 
+# Management endpoint configuration
 management:
   endpoints:
     web:
@@ -27,6 +30,7 @@ management:
     health:
       show-details: always
 
+# Application metadata
 info:
   app:
     name: Gov Employees Credit
@@ -34,7 +38,8 @@ info:
     version: 1.0.0
     maintainer: alejsant75@gmail.com
 
-# Server
-server:
-  port: 8080
-
+# Security configuration for JWT
+security:
+  jwt:
+    secret-key: ${JWT_SECRET_KEY:8071b7d6c05b9afdb77a7ff144762e93c29f87db2c3162f0c17635a7d89035d3}
+    expiration: 3600000
