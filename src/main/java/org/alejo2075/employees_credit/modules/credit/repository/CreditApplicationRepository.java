@@ -1,7 +1,7 @@
 package org.alejo2075.employees_credit.modules.credit.repository;
 
-import org.alejo2075.employees_credit.modules.credit.model.entity.CreditApplication;
 import org.alejo2075.employees_credit.modules.credit.model.CreditApplicationStatus;
+import org.alejo2075.employees_credit.modules.credit.model.entity.CreditApplication;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

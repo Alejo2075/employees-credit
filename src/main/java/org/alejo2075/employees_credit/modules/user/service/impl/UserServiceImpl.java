@@ -2,7 +2,6 @@ package org.alejo2075.employees_credit.modules.user.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.alejo2075.employees_credit.modules.user.exception.UserNotFoundException;
 import org.alejo2075.employees_credit.modules.user.model.Role;
 import org.alejo2075.employees_credit.modules.user.model.dto.ProfileUpdateRequest;
@@ -91,13 +90,6 @@ public class UserServiceImpl implements UserService {
 
         User updatedUser = userRepository.save(user);
         log.info("Roles assigned to user with ID: {} successfully", id);
-
-        // Send an email notification about the role assignment
-        emailService.sendEmail(
-                user.getEmail(),
-                "Roles Updated",
-                "Your roles have been updated successfully."
-        );
 
         return convertToUserResponse(updatedUser);
     }

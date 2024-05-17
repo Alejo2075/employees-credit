@@ -2,8 +2,8 @@ package org.alejo2075.employees_credit.modules.user.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.alejo2075.employees_credit.modules.user.exception.AuthenticationException;
 import org.alejo2075.employees_credit.common.jwt.JwtService;
+import org.alejo2075.employees_credit.modules.user.exception.AuthenticationException;
 import org.alejo2075.employees_credit.modules.user.model.Role;
 import org.alejo2075.employees_credit.modules.user.model.dto.AuthenticationRequest;
 import org.alejo2075.employees_credit.modules.user.model.dto.AuthenticationResponse;
@@ -52,13 +52,6 @@ public class AuthServiceImpl implements AuthService {
         log.info("User {} registered successfully", request.getEmail());
 
         var jwtToken = jwtService.generateToken(user);
-
-        // Send a welcome email
-        emailService.sendEmail(
-                user.getEmail(),
-                "Welcome to Employees Credit",
-                "Thank you for registering with Employees Credit. Your account has been created successfully."
-        );
 
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)

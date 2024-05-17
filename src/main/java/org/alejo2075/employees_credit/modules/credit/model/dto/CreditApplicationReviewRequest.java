@@ -8,8 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.alejo2075.employees_credit.modules.credit.model.CreditApplicationStatus;
 
-import java.util.UUID;
-
 /**
  * DTO for credit application review request.
  */
