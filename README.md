@@ -2,6 +2,9 @@
 
 Welcome to the **Employees Credit System**, a comprehensive platform designed specifically for processing and approving credit applications from government employees in Cuba. This system streamlines the entire credit approval workflow, from application submission to final credit disbursement.
 
+## Technical article
+https://medium.com/@alejsant75/building-a-credit-management-system-for-government-employees-in-cuba-using-java-and-spring-boot-912f81b8bdfc
+
 ## 📝 Table of Contents
 
 - [Project Description](#project-description)
